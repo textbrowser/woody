@@ -25,10 +25,6 @@
 ** WOODY, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-/*
-** Alexis Megas.
-*/
-
 #ifndef _woody_collapse_expand_tool_button_h_
 #define _woody_collapse_expand_tool_button_h_
 
