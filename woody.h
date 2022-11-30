@@ -49,8 +49,12 @@ class woody_collapse_expand_tool_button: public QToolButton
 	** Please consider setting a minimum section size for the header!
 	*/
 
-	m_tree->header()->setDefaultAlignment(Qt::AlignCenter);
-	m_tree->header()->setMinimumHeight(30);
+	if(m_three->header())
+	  {
+	    m_tree->header()->setDefaultAlignment(Qt::AlignCenter);
+	    m_tree->header()->setMinimumHeight(30);
+	  }
+
 	move(5, (m_tree->header()->size().height() - 25) / 2 + 2);
 	resize(25, 25);
 	setCheckable(true);
@@ -63,10 +67,13 @@ class woody_collapse_expand_tool_button: public QToolButton
 		      "QToolButton::menu-button {border: none;}");
 	setText(tr("+"));
 	setToolTip(tr("Collapse / Expand"));
-	connect(m_tree->horizontalScrollBar(),
-		SIGNAL(valueChanged(int)),
-		this,
-		SLOT(slot_scroll(int)));
+
+	if(m_tree->horizontalScrollBar())
+	  connect(m_tree->horizontalScrollBar(),
+		  SIGNAL(valueChanged(int)),
+		  this,
+		  SLOT(slot_scroll(int)));
+
 	connect(this,
 		SIGNAL(clicked(void)),
 		this,
