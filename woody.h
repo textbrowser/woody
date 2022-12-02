@@ -43,18 +43,14 @@ class woody_collapse_expand_tool_button: public QToolButton
   {
     m_tree = tree;
 
-    if(m_tree)
+    if(m_tree && m_tree->header())
       {
 	/*
 	** Please consider setting a minimum section size for the header!
 	*/
 
-	if(m_three->header())
-	  {
-	    m_tree->header()->setDefaultAlignment(Qt::AlignCenter);
-	    m_tree->header()->setMinimumHeight(30);
-	  }
-
+	m_tree->header()->setDefaultAlignment(Qt::AlignCenter);
+	m_tree->header()->setMinimumHeight(30);
 	move(5, (m_tree->header()->size().height() - 25) / 2 + 2);
 	resize(25, 25);
 	setCheckable(true);
